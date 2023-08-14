@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
 class settingProvider extends ChangeNotifier {
-  Brightness theme = Brightness.light;
+  bool theme = true;
 
   changeTheme() {
-    theme != theme;
+    theme = !theme;
+    notifyListeners();
   }
 }

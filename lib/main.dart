@@ -27,7 +27,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         useMaterial3: true,
-        brightness: Provider.of<settingProvider>(context).theme,
+        brightness: Provider.of<settingProvider>(context).theme
+            ? Brightness.light
+            : Brightness.dark,
       ),
       getPages: [
         GetPage(

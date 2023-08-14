@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:getx_app/controller/setting_controller.dart';
 import 'package:provider/provider.dart';
 
@@ -23,19 +22,15 @@ class setting_page extends StatelessWidget {
             children: [
               ElevatedButton(
                 onPressed: () {
+                  // Get.changeThemeMode(ThemeMode.light);
                   provider.changeTheme();
-                  provider.theme == Brightness.dark;
-                  // Get.changeTheme(
-                  //   (provider.theme = Brightness.dark) as ThemeData,
-                  // );
                 },
                 child: const Text("Theme"),
               ),
               ElevatedButton(
                 onPressed: () {
-                  Get.changeTheme(
-                    ThemeData.dark(),
-                  );
+                  provider.changeTheme();
+                  // Get.changeThemeMode(ThemeMode.dark);
                 },
                 child: const Text("dark"),
               ),
