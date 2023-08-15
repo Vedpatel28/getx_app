@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:getx_app/views/screens/setting_page.dart';
 
 class home_page extends StatelessWidget {
   const home_page({super.key});
@@ -11,17 +10,23 @@ class home_page extends StatelessWidget {
       appBar: AppBar(
         title: const Text("home"),
       ),
-      body: Column(
-        children: [
-          IconButton(
-            onPressed: () {
-              Get.toNamed(
-                "/setting",
-              );
-            },
-            icon: const Icon(Icons.settings),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              IconButton(
+                onPressed: () {
+                  Get.toNamed(
+                    "/setting",
+                  );
+                },
+                icon: const Icon(Icons.settings),
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }

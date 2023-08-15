@@ -16,27 +16,22 @@ class setting_page extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(18),
-        child: Consumer<settingProvider>(builder: (context, provider, _) {
-          return Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              ElevatedButton(
-                onPressed: () {
-                  // Get.changeThemeMode(ThemeMode.light);
-                  provider.changeTheme();
-                },
-                child: const Text("Theme"),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  provider.changeTheme();
-                  // Get.changeThemeMode(ThemeMode.dark);
-                },
-                child: const Text("dark"),
-              ),
-            ],
-          );
-        }),
+        child: Consumer<settingProvider>(
+          builder: (context, provider, _) {
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                    // Get.changeThemeMode(ThemeMode.light);
+                    provider.changeTheme();
+                  },
+                  child: const Text("Theme"),
+                ),
+              ],
+            );
+          },
+        ),
       ),
     );
   }
