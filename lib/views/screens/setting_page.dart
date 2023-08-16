@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_core/get_core.dart';
+import 'package:get/get_instance/get_instance.dart';
 import 'package:getx_app/controller/setting_controller.dart';
-import 'package:provider/provider.dart';
 
 class setting_page extends StatelessWidget {
-  const setting_page({super.key});
+  setting_page({super.key});
+
+  final settingProvider controller = Get.put(settingProvider());
 
   @override
   Widget build(BuildContext context) {
@@ -16,21 +19,16 @@ class setting_page extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(18),
-        child: Consumer<settingProvider>(
-          builder: (context, provider, _) {
-            return Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ElevatedButton(
-                  onPressed: () {
-                    // Get.changeThemeMode(ThemeMode.light);
-                    provider.changeTheme();
-                  },
-                  child: const Text("Theme"),
-                ),
-              ],
-            );
-          },
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+              onPressed: () {
+                controller.changeTheme();
+              },
+              child: const Text("Theme"),
+            ),
+          ],
         ),
       ),
     );

@@ -1,10 +1,12 @@
-import 'package:flutter/material.dart';
+// ignore_for_file: unrelated_type_equality_checks
 
-class settingProvider extends ChangeNotifier {
-  bool theme = true;
+import 'package:get/get.dart';
+
+class settingProvider extends GetxController {
+  RxBool theme = true.obs;
 
   changeTheme() {
-    theme = !theme;
-    notifyListeners();
+    theme.value = !theme.value;
+    print(theme.value);
   }
 }
