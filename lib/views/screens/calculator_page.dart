@@ -54,9 +54,6 @@ class calculator_page extends StatelessWidget {
                     keyboardType: TextInputType.number,
                     onSubmitted: (value) {
                       controller.model.second.value == value;
-                      print("===========================");
-                      print(value);
-                      print("===========================");
                     },
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(
