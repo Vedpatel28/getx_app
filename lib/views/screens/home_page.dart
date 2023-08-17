@@ -9,20 +9,29 @@ class home_page extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("home"),
+        actions: [
+          IconButton(
+            onPressed: () {
+              Get.toNamed(
+                "/setting",
+              );
+            },
+            icon: const Icon(Icons.settings),
+          ),
+        ],
+        centerTitle: true,
       ),
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: EdgeInsets.all(8.0),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              IconButton(
-                onPressed: () {
-                  Get.toNamed(
-                    "/setting",
-                  );
+              GestureDetector(
+                onTap: () {
+                  Get.toNamed("/counter");
                 },
-                icon: const Icon(Icons.settings),
+                child: const Text("Counter"),
               ),
             ],
           ),

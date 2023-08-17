@@ -1,12 +1,17 @@
-// ignore_for_file: unrelated_type_equality_checks
+// ignore_for_file: unrelated_type_equality_checks, camel_case_types
 
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:getx_app/model/setting_model.dart';
 
-class settingProvider extends GetxController {
-  RxBool theme = true.obs;
+class settingController extends GetxController {
+
+  settingmodel models = settingmodel();
 
   changeTheme() {
-    theme.value = !theme.value;
-    print(theme.value);
+    models.theme.value = !models.theme.value;
+    debugPrint("++++++++==============");
+    debugPrint("${models.theme.value}");
+    debugPrint("+++++++++=============");
   }
 }

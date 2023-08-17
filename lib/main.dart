@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx_app/controller/setting_controller.dart';
+import 'package:getx_app/views/screens/counter_page.dart';
 import 'package:getx_app/views/screens/home_page.dart';
 import 'package:getx_app/views/screens/setting_page.dart';
 
@@ -13,7 +14,7 @@ void main() {
 class MyApp extends StatelessWidget {
   MyApp({super.key});
 
-  final settingProvider controller = Get.put(settingProvider());
+  final settingController controller = Get.put(settingController());
 
   @override
   Widget build(BuildContext context) {
@@ -21,16 +22,20 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
           useMaterial3: true,
-        brightness: controller.theme.value ? Brightness.light : Brightness.dark,
+        brightness: controller.models.theme.value ? Brightness.light : Brightness.dark,
       ),
       getPages: [
         GetPage(
           name: "/",
-          page: () => home_page(),
+          page: () => const home_page(),
         ),
         GetPage(
           name: "/setting",
           page: () => setting_page(),
+        ),
+        GetPage(
+          name: "/counter",
+          page: () => counter_Page(),
         ),
       ],
     );
