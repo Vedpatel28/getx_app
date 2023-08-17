@@ -33,6 +33,15 @@ class home_page extends StatelessWidget {
                 },
                 child: const Text("Counter"),
               ),
+              const SizedBox(
+                height: 50,
+              ),
+              GestureDetector(
+                onTap: () {
+                  Get.toNamed("/calculator");
+                },
+                child: const Text("Calculator"),
+              ),
             ],
           ),
         ),

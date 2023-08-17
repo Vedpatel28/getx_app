@@ -17,10 +17,17 @@ class counter_Page extends StatelessWidget {
       ),
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Obx(
               () {
-                return Text("${controllerCounter.model.counter}");
+                return Text(
+                  "${controllerCounter.model.counter}",
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 32,
+                  ),
+                );
               },
             ),
           ],

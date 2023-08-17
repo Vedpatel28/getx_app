@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx_app/controller/setting_controller.dart';
+import 'package:getx_app/views/screens/calculator_page.dart';
 import 'package:getx_app/views/screens/counter_page.dart';
 import 'package:getx_app/views/screens/home_page.dart';
 import 'package:getx_app/views/screens/setting_page.dart';
@@ -36,6 +37,10 @@ class MyApp extends StatelessWidget {
         GetPage(
           name: "/counter",
           page: () => counter_Page(),
+        ),
+        GetPage(
+          name: "/calculator",
+          page: () => calculator_page(),
         ),
       ],
     );
