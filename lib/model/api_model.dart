@@ -1,10 +1,12 @@
 // ignore_for_file: camel_case_types
+import 'package:get/get.dart';
 
 class productModel {
   final String title;
   final String description;
   final int price;
   final String thumbnail;
+  late RxInt totalItems = 1.obs;
 
   productModel(
     this.title,
