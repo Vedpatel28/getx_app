@@ -15,8 +15,8 @@ class Ecom_Home extends StatelessWidget {
         padding: const EdgeInsets.all(12),
         child: FutureBuilder(
           future: Api_Helper.api_helper.getApi(),
-          builder: (context,snapShot) {
-            if(snapShot.hasData) {
+          builder: (context, snapShot) {
+            if (snapShot.hasData) {
               return GridView.builder(
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
@@ -24,18 +24,31 @@ class Ecom_Home extends StatelessWidget {
                 itemBuilder: (context, index) {
                   productModel product = snapShot.data![index];
                   return Card(
-                    child: Column(children: [
-                      CircleAvatar(
-                        foregroundImage: NetworkImage(product.thumbnail),
-                      )
-                    ]),
+                    child: Column(
+                      children: [
+                        Container(
+                          height: 120,
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: NetworkImage(
+                                product.thumbnail,
+                              ),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   );
                 },
               );
+            } else if (snapShot.hasError) {
+              return Text("${snapShot.error}");
             } else {
               return const Center(child: CircularProgressIndicator());
             }
-          }
+          },
         ),
       ),
     );
