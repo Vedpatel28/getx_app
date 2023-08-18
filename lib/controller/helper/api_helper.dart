@@ -7,7 +7,7 @@ class Api_Helper {
 
   static final Api_Helper api_helper = Api_Helper._();
 
-  getApi() async {
+  Future<List<productModel>?> getApi() async {
     Dio dio = Dio();
 
     String api = "https://dummyjson.com/products?limit=100";
@@ -20,5 +20,6 @@ class Api_Helper {
       List<productModel> listOfProduct = allProduct.map((e) => productModel.fromMap(product: e)).toList();
       return listOfProduct;
     }
+    return null;
   }
 }
