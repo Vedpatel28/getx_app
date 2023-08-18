@@ -1,15 +1,35 @@
+// ignore_for_file: must_be_immutable, camel_case_types
+
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:getx_app/controller/cart_controller.dart';
 import 'package:getx_app/controller/helper/api_helper.dart';
 import 'package:getx_app/model/api_model.dart';
 
 class Ecom_Home extends StatelessWidget {
-  const Ecom_Home({super.key});
+  Ecom_Home({super.key});
+
+  cartController cartcontroller = Get.put(cartController());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("E Com Home"),
+        title: const Text("E Commerce"),
+        actions: [
+          Stack(
+            children: [
+              IconButton(
+                onPressed: () {
+                  Get.toNamed("/ecom_Cart");
+                },
+                icon: const Icon(
+                  Icons.shopping_bag_rounded,
+                ),
+              ),
+            ],
+          ),
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(12),
@@ -20,11 +40,16 @@ class Ecom_Home extends StatelessWidget {
               return GridView.builder(
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
+                  childAspectRatio: 2 / 3,
+                  crossAxisSpacing: 12,
+                  mainAxisSpacing: 12,
                 ),
                 itemBuilder: (context, index) {
                   productModel product = snapShot.data![index];
                   return Card(
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Container(
                           height: 120,
@@ -36,6 +61,48 @@ class Ecom_Home extends StatelessWidget {
                               ),
                               fit: BoxFit.cover,
                             ),
+                          ),
+                        ),
+                        Container(
+                          height: 50,
+                          alignment: Alignment.center,
+                          child: Text(product.title),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                height: 50,
+                                alignment: Alignment.center,
+                                child: Text("\$ ${product.price}"),
+                              ),
+                              IconButton(
+                                onPressed: () {
+                                  if (cartcontroller.cartItems
+                                      .contains(product)) {
+                                    Get.snackbar(
+                                      product.title,
+                                      "Already added",
+                                      duration: const Duration(
+                                        milliseconds: 1200,
+                                      ),
+                                    );
+                                  } else {
+                                    cartcontroller.addProduct(product: product);
+                                    Get.snackbar(
+                                      product.title,
+                                      "add In Cart",
+                                      duration: const Duration(
+                                        milliseconds: 1200,
+                                      ),
+                                    );
+                                  }
+                                },
+                                icon: const Icon(Icons.shopping_bag_outlined),
+                              ),
+                            ],
                           ),
                         ),
                       ],
