@@ -20,6 +20,5 @@ class Api_Helper {
       List<productModel> listOfProduct = allProduct.map((e) => productModel.fromMap(product: e)).toList();
       return listOfProduct;
     }
-    return null;
   }
 }
