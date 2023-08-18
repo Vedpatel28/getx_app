@@ -22,7 +22,7 @@ class home_page extends StatelessWidget {
         centerTitle: true,
       ),
       body: Padding(
-        padding: EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(8.0),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -41,6 +41,14 @@ class home_page extends StatelessWidget {
                   Get.toNamed("/calculator");
                 },
                 child: const Text("Calculator"),
+              ),const SizedBox(
+                height: 50,
+              ),
+              GestureDetector(
+                onTap: () {
+                  Get.toNamed("/ecom_Home");
+                },
+                child: const Text("E Com App"),
               ),
             ],
           ),
