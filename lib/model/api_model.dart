@@ -6,7 +6,8 @@ class productModel {
   final String description;
   final int price;
   final String thumbnail;
-  late RxInt totalItems = 1.obs;
+  RxInt totalItems = 1.obs;
+  RxInt totalPrice = 0.obs;
 
   productModel(
     this.title,
