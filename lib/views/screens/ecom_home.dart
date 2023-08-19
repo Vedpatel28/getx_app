@@ -104,7 +104,7 @@ class Ecom_Home extends StatelessWidget {
                                       "add In Cart",
                                       barBlur: 2,
                                       animationDuration:
-                                          Duration(milliseconds: 300),
+                                          const Duration(milliseconds: 300),
                                       forwardAnimationCurve:
                                           Curves.easeInOutQuad,
                                       onTap: (snack) {
