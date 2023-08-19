@@ -85,6 +85,14 @@ class Ecom_Home extends StatelessWidget {
                                     Get.snackbar(
                                       product.title,
                                       "Already added",
+                                      barBlur: 2,
+                                      animationDuration:
+                                          const Duration(milliseconds: 300),
+                                      forwardAnimationCurve:
+                                          Curves.easeInOutQuad,
+                                      onTap: (snack) {
+                                        Get.toNamed("/ecom_Cart");
+                                      },
                                       duration: const Duration(
                                         milliseconds: 1200,
                                       ),
@@ -94,6 +102,14 @@ class Ecom_Home extends StatelessWidget {
                                     Get.snackbar(
                                       product.title,
                                       "add In Cart",
+                                      barBlur: 2,
+                                      animationDuration:
+                                          Duration(milliseconds: 300),
+                                      forwardAnimationCurve:
+                                          Curves.easeInOutQuad,
+                                      onTap: (snack) {
+                                        Get.toNamed("/ecom_Cart");
+                                      },
                                       duration: const Duration(
                                         milliseconds: 1200,
                                       ),
