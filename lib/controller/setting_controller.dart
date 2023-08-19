@@ -1,6 +1,5 @@
 // ignore_for_file: unrelated_type_equality_checks, camel_case_types
 
-import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:getx_app/model/setting_model.dart';
 
@@ -10,8 +9,5 @@ class settingController extends GetxController {
 
   changeTheme() {
     models.theme.value = !models.theme.value;
-    debugPrint("++++++++==============");
-    debugPrint("${models.theme.value}");
-    debugPrint("+++++++++=============");
   }
 }

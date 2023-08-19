@@ -37,7 +37,11 @@ dependencies:
   cupertino_icons: ^1.0.2
   get: any
   provider: any
+  flutter_spinkit:
+  google_fonts:
   dio:
+  animated_splash_screen:
+  get_storage:
 
 dev_dependencies:
   flutter_test:

@@ -6,7 +6,7 @@ import 'package:getx_app/model/api_model.dart';
 class cartController extends GetxController {
   RxList<productModel> cartItems = <productModel>[].obs;
   int finelAmount = 0;
-  RxInt pay = 0.obs;
+  int pay = 0;
 
   addProduct({required productModel product}) {
     cartItems.add(product);
@@ -33,5 +33,9 @@ class cartController extends GetxController {
   totalAmount({required productModel product}) {
     finelAmount = product.totalItems.value * product.price;
     return finelAmount;
+  }
+
+  finelPay({required productModel product}) {
+     finelAmount += product.price;
   }
 }

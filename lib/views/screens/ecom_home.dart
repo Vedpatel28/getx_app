@@ -4,12 +4,15 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx_app/controller/cart_controller.dart';
 import 'package:getx_app/controller/helper/api_helper.dart';
+import 'package:getx_app/controller/setting_controller.dart';
 import 'package:getx_app/model/api_model.dart';
 
 class Ecom_Home extends StatelessWidget {
   Ecom_Home({super.key});
 
-  cartController cartcontroller = Get.put(cartController());
+
+  final settingController controller = Get.find();
+  cartController cartcontroller = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -17,8 +20,16 @@ class Ecom_Home extends StatelessWidget {
       appBar: AppBar(
         title: const Text("E Commerce"),
         actions: [
-          Stack(
+          Row(
             children: [
+              IconButton(
+                onPressed: () {
+                  controller.changeTheme();
+                },
+                icon: const Icon(
+                  Icons.dark_mode_outlined,
+                ),
+              ),
               IconButton(
                 onPressed: () {
                   Get.toNamed("/ecom_Cart");
@@ -44,6 +55,7 @@ class Ecom_Home extends StatelessWidget {
                   crossAxisSpacing: 12,
                   mainAxisSpacing: 12,
                 ),
+                itemCount: snapShot.data!.length,
                 itemBuilder: (context, index) {
                   productModel product = snapShot.data![index];
                   return Card(
