@@ -21,7 +21,7 @@ visually engaging animation, captivating users and setting the tone for their we
 <img src = "https://github.com/Vedpatel28/getx_app/assets/130833918/b2398a4c-caaa-4ac8-8052-7f3346adf4de" height = "400"></img>
 <img src = "https://github.com/Vedpatel28/getx_app/assets/130833918/06e59708-0f20-466f-99f3-dae8f42b18eb" height = "400"></img>
 <img src = "https://github.com/Vedpatel28/getx_app/assets/130833918/0dfd98b4-6882-4ff4-9e7b-26c171c45568" height = "400"></img>
-<img src = "https://github.com/Vedpatel28/getx_app/assets/130833918/73792068-c0fb-4506-8708-d7530f887dfd" height = "400"></img>
+<img src = "https://github.com/Vedpatel28/getx_app/assets/130833918/821d2c43-fbe6-4456-bd25-11ed3eddf56b" height = "400"></img>
 
 Project Technologies:
 - Dart language
