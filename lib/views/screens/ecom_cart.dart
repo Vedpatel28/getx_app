@@ -72,7 +72,9 @@ class Ecom_Cart extends StatelessWidget {
               ),
             ),
             const Spacer(),
-            // Text("Total Amount \$ ${cartcontroller.pay}"),
+            Obx(
+              () => Text("Total Amount \$ ${cartcontroller.pay}"),
+            ),
           ],
         ),
       ),

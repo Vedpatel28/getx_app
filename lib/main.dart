@@ -7,6 +7,7 @@ import 'package:getx_app/controller/setting_controller.dart';
 import 'package:getx_app/views/screens/calculator_page.dart';
 import 'package:getx_app/views/screens/counter_page.dart';
 import 'package:getx_app/views/screens/ecom_cart.dart';
+import 'package:getx_app/views/screens/ecom_detail_page.dart';
 import 'package:getx_app/views/screens/ecom_home.dart';
 import 'package:getx_app/views/screens/setting_page.dart';
 import 'package:getx_app/views/screens/splash_screens.dart';
@@ -65,6 +66,10 @@ class MyApp extends StatelessWidget {
           GetPage(
             name: "/ecom_Cart",
             page: () => Ecom_Cart(),
+          ),
+          GetPage(
+            name: "/ecom_Detail",
+            page: () => Ecom_detail(),
           ),
         ],
       ),

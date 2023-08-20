@@ -10,7 +10,6 @@ import 'package:getx_app/model/api_model.dart';
 class Ecom_Home extends StatelessWidget {
   Ecom_Home({super.key});
 
-
   final settingController controller = Get.find();
   cartController cartcontroller = Get.find();
 
@@ -58,82 +57,88 @@ class Ecom_Home extends StatelessWidget {
                 itemCount: snapShot.data!.length,
                 itemBuilder: (context, index) {
                   productModel product = snapShot.data![index];
-                  return Card(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Container(
-                          height: 120,
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                              image: NetworkImage(
-                                product.thumbnail,
+                  return GestureDetector(
+                    onTap: () {
+                      Get.toNamed("/ecom_Detail",arguments: product);
+                    },
+                    child: Card(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Container(
+                            height: 120,
+                            width: double.infinity,
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                image: NetworkImage(
+                                  product.thumbnail,
+                                ),
+                                fit: BoxFit.cover,
                               ),
-                              fit: BoxFit.cover,
                             ),
                           ),
-                        ),
-                        Container(
-                          height: 50,
-                          alignment: Alignment.center,
-                          child: Text(product.title),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Container(
-                                height: 50,
-                                alignment: Alignment.center,
-                                child: Text("\$ ${product.price}"),
-                              ),
-                              IconButton(
-                                onPressed: () {
-                                  if (cartcontroller.cartItems
-                                      .contains(product)) {
-                                    Get.snackbar(
-                                      product.title,
-                                      "Already added",
-                                      barBlur: 2,
-                                      animationDuration:
-                                          const Duration(milliseconds: 300),
-                                      forwardAnimationCurve:
-                                          Curves.easeInOutQuad,
-                                      onTap: (snack) {
-                                        Get.toNamed("/ecom_Cart");
-                                      },
-                                      duration: const Duration(
-                                        milliseconds: 1200,
-                                      ),
-                                    );
-                                  } else {
-                                    cartcontroller.addProduct(product: product);
-                                    Get.snackbar(
-                                      product.title,
-                                      "add In Cart",
-                                      barBlur: 2,
-                                      animationDuration:
-                                          const Duration(milliseconds: 300),
-                                      forwardAnimationCurve:
-                                          Curves.easeInOutQuad,
-                                      onTap: (snack) {
-                                        Get.toNamed("/ecom_Cart");
-                                      },
-                                      duration: const Duration(
-                                        milliseconds: 1200,
-                                      ),
-                                    );
-                                  }
-                                },
-                                icon: const Icon(Icons.shopping_bag_outlined),
-                              ),
-                            ],
+                          Container(
+                            height: 50,
+                            alignment: Alignment.center,
+                            child: Text(product.title),
                           ),
-                        ),
-                      ],
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Container(
+                                  height: 50,
+                                  alignment: Alignment.center,
+                                  child: Text("\$ ${product.price}"),
+                                ),
+                                IconButton(
+                                  onPressed: () {
+                                    if (cartcontroller.cartItems
+                                        .contains(product)) {
+                                      Get.snackbar(
+                                        product.title,
+                                        "Already added",
+                                        barBlur: 2,
+                                        animationDuration:
+                                            const Duration(milliseconds: 300),
+                                        forwardAnimationCurve:
+                                            Curves.easeInOutQuad,
+                                        onTap: (snack) {
+                                          Get.toNamed("/ecom_Cart");
+                                        },
+                                        duration: const Duration(
+                                          milliseconds: 1200,
+                                        ),
+                                      );
+                                    } else {
+                                      cartcontroller.addProduct(
+                                          product: product);
+                                      Get.snackbar(
+                                        product.title,
+                                        "add In Cart",
+                                        barBlur: 2,
+                                        animationDuration:
+                                            const Duration(milliseconds: 300),
+                                        forwardAnimationCurve:
+                                            Curves.easeInOutQuad,
+                                        onTap: (snack) {
+                                          Get.toNamed("/ecom_Cart");
+                                        },
+                                        duration: const Duration(
+                                          milliseconds: 1200,
+                                        ),
+                                      );
+                                    }
+                                  },
+                                  icon: const Icon(Icons.shopping_bag_outlined),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   );
                 },
