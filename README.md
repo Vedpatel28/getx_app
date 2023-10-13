@@ -2,7 +2,7 @@
 
 A new Flutter project.
 
-https://github.com/Vedpatel28/getx_app/assets/130833918/50bba1a6-a095-42da-8746-691071511925
+https://github.com/Vedpatel28/getx_app/assets/130833918/d5f545af-d3cb-43ae-85e4-70cad8854560
 
 ## Project Objectives:
 
